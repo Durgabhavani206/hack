@@ -1,18 +1,97 @@
-.dash-container {
-  padding: 30px;
-  font-family: Arial;
-}
-.cards {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.card {
-  width: 200px;
+.lender-container {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #ffffff);
   padding: 20px;
-  background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
-  border-radius: 10px;
+}
+
+h1 {
+  color: #00796b;
+  font-size: 36px;
   text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Stats Cards */
+.stats-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  width: 180px;
+  padding: 20px;
+  border-radius: 12px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s;
+}
+
+.stat-card:hover { transform: translateY(-5px); }
+
+.stat-card h2 { font-size: 28px; margin-top: 10px; }
+
+.stat-card.approved { background: #00b347; }
+.stat-card.rejected { background: #d40000; }
+.stat-card.pending { background: #ff9800; }
+.stat-card.total-invested { background: #2e89ff; }
+.stat-card.expected-return { background: #8e44ad; }
+.stat-card.next-due { background: #f39c12; }
+
+/* Loan Table */
+.loan-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.loan-table th, .loan-table td {
+  padding: 12px 15px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.loan-table th {
+  background: #00796b;
+  color: white;
+}
+
+.loan-table tr:nth-child(even) {
+  background: #f1f1f1;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 6px;
   font-weight: bold;
-  color: #333;
+}
+
+.status.pending { background: #ffefc7; color: #b58a00; }
+.status.approved { background: #d3ffd9; color: #00892b; }
+.status.rejected { background: #ffd4d4; color: #b40000; }
+
+.btn-accept, .btn-reject {
+  padding: 6px 12px;
+  margin: 2px;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-accept { background: #00b347; color: white; }
+.btn-accept:hover { background: #00892b; }
+
+.btn-reject { background: #d40000; color: white; }
+.btn-reject:hover { background: #a50000; }
+
+.empty-msg {
+  font-size: 18px;
+  margin-top: 20px;
+  text-align: center;
+  opacity: 0.7;
 }

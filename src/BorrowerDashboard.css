@@ -1,17 +1,90 @@
-.dash-container {
-  padding: 30px;
-  font-family: Arial;
-}
-.cards {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.card {
-  width: 200px;
-  padding: 20px;
+.borrower-container {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
   background: linear-gradient(135deg, #ffecd2, #fcb69f);
-  border-radius: 10px;
-  text-align: center;
-  font-weight: bold;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.borrower-container h1 {
+  color: #ff6f61;
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.form-card, .requests-table-card {
+  width: 700px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.btn-submit, .btn-calc {
+  width: 48%;
+  margin: 5px 1%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-submit {
+  background: #ff6f61;
+}
+
+.btn-submit:hover { background: #e65a4d; }
+
+.btn-calc {
+  background: #4caf50;
+}
+
+.btn-calc:hover { background: #3e8e41; }
+
+.calc-result {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #ff6f61;
+}
+
+.requests-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.requests-table th, .requests-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+.requests-table th {
+  background: #ff6f61;
+  color: white;
+}
+
+.requests-table tr:nth-child(even) {
+  background: #ffe5df;
+}
+
+.status.pending { color: #b58a00; font-weight: bold; }
+.status.approved { color: #00892b; font-weight: bold; }
+.status.rejected { color: #b40000; font-weight: bold; }
+.empty-msg { margin-top: 20px; font-size: 18px; color: #555; }

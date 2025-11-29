@@ -1,18 +1,90 @@
-.dash-container {
-  padding: 30px;
-  font-family: Arial;
-}
-.cards {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.card {
-  width: 200px;
+.admin-container {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ffe0b2, #ffffff);
   padding: 20px;
-  background: linear-gradient(135deg, #f6d365, #fda085);
-  border-radius: 10px;
+}
+
+h1 {
   text-align: center;
-  font-weight: bold;
+  color: #f57c00;
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+/* Stats Cards */
+.stats-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  width: 180px;
+  padding: 20px;
+  border-radius: 12px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: transform 0.3s;
+}
+
+.stat-card:hover { transform: translateY(-5px); }
+
+.stat-card h2 { font-size: 28px; margin-top: 10px; }
+
+.stat-card.total { background: #2e89ff; }
+.stat-card.approved { background: #00b347; }
+.stat-card.rejected { background: #d40000; }
+.stat-card.pending { background: #ff9800; }
+.stat-card.total-amount { background: #8e44ad; }
+
+/* Filter */
+.filter-section {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.filter-section select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+/* Loan Table */
+.table-section {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th, .admin-table td {
+  padding: 12px 15px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.admin-table th {
+  background: #f57c00;
   color: white;
 }
+
+.admin-table tr:nth-child(even) {
+  background: #fff3e0;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.status.pending { background: #ffefc7; color: #b58a00; }
+.status.approved { background: #d3ffd9; color: #00892b; }
+.status.rejected { background: #ffd4d4; color: #b40000; }

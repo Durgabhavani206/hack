@@ -1,17 +1,38 @@
-.dash-container {
+.analyst-container {
   padding: 30px;
-  font-family: Arial;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ffe7c7, #c7f0ff);
+  min-height: 100vh;
 }
-.cards {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-.card {
-  width: 200px;
-  padding: 20px;
-  background: linear-gradient(135deg, #d4fc79, #96e6a1);
-  border-radius: 10px;
+
+.analyst-container h1 {
   text-align: center;
+  color: #2e89ff;
+  margin-bottom: 40px;
+}
+
+.section {
+  background: #fff;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+.section h2 {
+  color: #ff6f61;
+  margin-bottom: 15px;
+}
+
+.section ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.section ul li {
+  background: #f0f0f0;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
   font-weight: bold;
 }
