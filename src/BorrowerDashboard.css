@@ -1,0 +1,17 @@
+.dash-container {
+  padding: 30px;
+  font-family: Arial;
+}
+.cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.card {
+  width: 200px;
+  padding: 20px;
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+}
