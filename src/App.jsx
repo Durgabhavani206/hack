@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
 import Login from "./Login";
@@ -8,17 +8,12 @@ import BorrowerDashboard from "./BorrowerDashboard";
 import AnalystDashboard from "./AnalystDashboard";
 
 function App() {
-  // -------------------------
-  // SHARED LOAN REQUEST STATE
-  // -------------------------
   const [loanRequests, setLoanRequests] = useState([]);
 
-  // Borrower sends request
   const handleBorrowerRequest = (request) => {
     setLoanRequests([...loanRequests, request]);
   };
 
-  // Lender decision (Approve/Reject)
   const handleLenderDecision = (id, status) => {
     const updatedRequests = loanRequests.map((req) =>
       req.id === id ? { ...req, status } : req
@@ -45,9 +40,7 @@ function App() {
 
         <Route
           path="/borrower"
-          element={
-            <BorrowerDashboard onSendRequest={handleBorrowerRequest} />
-          }
+          element={<BorrowerDashboard onSendRequest={handleBorrowerRequest} />}
         />
 
         <Route
