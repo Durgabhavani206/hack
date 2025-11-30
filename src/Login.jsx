@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Navigate } from "react-router-dom";
+import { BASEURL } from "./lib"; // use the updated BASEURL
 import "./Login.css";
 
 export default class Login extends Component {
@@ -7,15 +8,9 @@ export default class Login extends Component {
     super(props);
     this.state = {
       loginData: { email: "", password: "" },
-      signupData: {
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: "",
-        role: "",
-      },
+      signupData: { firstName: "", lastName: "", email: "", password: "", role: "" },
       action: "Login",
-      redirectTo: null, // for navigation
+      redirectTo: null,
     };
   }
 
@@ -31,7 +26,7 @@ export default class Login extends Component {
 
   login = async () => {
     try {
-      const response = await fetch("http://localhost:5001/login", {
+      const response = await fetch(`${BASEURL}login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(this.state.loginData),
@@ -41,8 +36,6 @@ export default class Login extends Component {
 
       if (resJson.success) {
         const { role } = resJson.user;
-
-        // Map role to route
         let path = "/";
         if (role === "Admin") path = "/admin";
         else if (role === "Lender") path = "/lender";
@@ -60,7 +53,7 @@ export default class Login extends Component {
 
   signup = async () => {
     try {
-      const response = await fetch("http://localhost:5001/signup", {
+      const response = await fetch(`${BASEURL}signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(this.state.signupData),
@@ -81,7 +74,6 @@ export default class Login extends Component {
   };
 
   render() {
-    // If redirectTo is set, navigate
     if (this.state.redirectTo) {
       return <Navigate to={this.state.redirectTo} />;
     }
@@ -93,63 +85,21 @@ export default class Login extends Component {
 
           {this.state.action === "Login" ? (
             <>
-              <input
-                type="email"
-                placeholder="Email"
-                name="email"
-                value={this.state.loginData.email}
-                onChange={this.handleLoginChange}
-              />
-              <input
-                type="password"
-                placeholder="Password"
-                name="password"
-                value={this.state.loginData.password}
-                onChange={this.handleLoginChange}
-              />
+              <input type="email" placeholder="Email" name="email" value={this.state.loginData.email} onChange={this.handleLoginChange} />
+              <input type="password" placeholder="Password" name="password" value={this.state.loginData.password} onChange={this.handleLoginChange} />
               <button onClick={this.login}>Login</button>
               <p>
                 Don't have an account?{" "}
-                <span onClick={() => this.setState({ action: "Signup" })}>
-                  Signup
-                </span>
+                <span onClick={() => this.setState({ action: "Signup" })}>Signup</span>
               </p>
             </>
           ) : (
             <>
-              <input
-                type="text"
-                placeholder="First Name"
-                name="firstName"
-                value={this.state.signupData.firstName}
-                onChange={this.handleSignupChange}
-              />
-              <input
-                type="text"
-                placeholder="Last Name"
-                name="lastName"
-                value={this.state.signupData.lastName}
-                onChange={this.handleSignupChange}
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                name="email"
-                value={this.state.signupData.email}
-                onChange={this.handleSignupChange}
-              />
-              <input
-                type="password"
-                placeholder="Password"
-                name="password"
-                value={this.state.signupData.password}
-                onChange={this.handleSignupChange}
-              />
-              <select
-                name="role"
-                value={this.state.signupData.role}
-                onChange={this.handleSignupChange}
-              >
+              <input type="text" placeholder="First Name" name="firstName" value={this.state.signupData.firstName} onChange={this.handleSignupChange} />
+              <input type="text" placeholder="Last Name" name="lastName" value={this.state.signupData.lastName} onChange={this.handleSignupChange} />
+              <input type="email" placeholder="Email" name="email" value={this.state.signupData.email} onChange={this.handleSignupChange} />
+              <input type="password" placeholder="Password" name="password" value={this.state.signupData.password} onChange={this.handleSignupChange} />
+              <select name="role" value={this.state.signupData.role} onChange={this.handleSignupChange}>
                 <option value="">Select Role</option>
                 <option value="Admin">Admin</option>
                 <option value="Lender">Lender</option>
