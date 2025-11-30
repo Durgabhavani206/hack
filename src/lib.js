@@ -1,9 +1,7 @@
 // lib.js
+export const BASEURL = "https://cayla-semiannual-semirawly.ngrok-free.dev/"; // your ngrok URL
 
-// Replace localhost with your ngrok URL
-export const BASEURL = "https://abcd1234.ngrok-free.app/";
-
-// Utility function for API calls
+// Utility function to call APIs (optional, if used)
 export function callApi(reqMethod, url, data, responseHandler) {
     let options;
     if (reqMethod === "GET" || reqMethod === "DELETE") {
